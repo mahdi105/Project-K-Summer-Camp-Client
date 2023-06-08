@@ -27,8 +27,8 @@ const Header = () => {
                                 {menu}
                             </ul>
                         </div>
-                        <Link to='/' className='ml-2 md:ml-0 w-6/12'>
-                            <img className='w-6/12 md:w-full' src={logo} alt="Summer Sports logo" />
+                        <Link to='/' className='ml-2 md:ml-0 w-5/12 md:w-6/12'>
+                            <img className='w-full' src={logo} alt="Summer Sports logo" />
                         </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
