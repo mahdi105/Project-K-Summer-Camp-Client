@@ -1,16 +1,16 @@
 import React from 'react';
 import Container from '../../Utils/Container';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '/logo.png'
-
+import './Header.css'
 // Main Menu
 const menu = <>
-    <li className='uppercase font-semibold text-[#0f3054]'><Link to='/'>Home</Link></li>
-    <li className='uppercase font-semibold text-[#0f3054]'><Link to='/instructors'>Instructors</Link></li>
-    <li className='uppercase font-semibold text-[#0f3054]'><Link to='/classes'>Classes</Link></li>
-    <li className='uppercase font-semibold text-[#0f3054]'><Link to='/about'>About Us</Link></li>
-    <li className='uppercase font-semibold text-[#0f3054]'><Link to='/contact'>Contact Us</Link></li>
-    <li className='uppercase font-semibold text-[#0f3054]'><Link to='/register'>Register</Link></li>
+    <li className='uppercase font-semibold text-[#0f3054]'><NavLink className={({ isActive}) => isActive ? "active" : ""} to='/'>Home</NavLink></li>
+    <li className='uppercase font-semibold text-[#0f3054]'><NavLink className={({ isActive}) => isActive ? "active" : ""} to='/instructors'>Instructors</NavLink></li>
+    <li className='uppercase font-semibold text-[#0f3054]'><NavLink className={({ isActive}) => isActive ? "active" : ""} to='/classes'>Classes</NavLink></li>
+    <li className='uppercase font-semibold text-[#0f3054]'><NavLink className={({ isActive}) => isActive ? "active" : ""} to='/about'>About Us</NavLink></li>
+    <li className='uppercase font-semibold text-[#0f3054]'><NavLink className={({ isActive}) => isActive ? "active" : ""} to='/contact'>Contact Us</NavLink></li>
+    <li className='uppercase font-semibold text-[#0f3054]'><NavLink className={({ isActive}) => isActive ? "active" : ""} to='/register'>Register</NavLink></li>
 </>
 
 const Header = () => {
@@ -37,7 +37,8 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <a className="btn">Button</a>
+                        <div><img className='w-[50px] h-[50px] rounded-full border border-slate-100 mr-2' src="" alt="" /></div>
+                        <Link className="btn">Dashboard</Link>
                     </div>
                 </div>
             </Container>

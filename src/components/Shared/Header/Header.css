@@ -1,0 +1,4 @@
+.menu li a.active{
+    color: #FF1B62 !important;
+    background: none !important;
+}
