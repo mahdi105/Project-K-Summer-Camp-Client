@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 const Home = () => {
     return (
-        <div>
+        <div className='mt-[120px]'>
             <Helmet>
                 <title>Home | Summer Sports</title>
             </Helmet>
