@@ -30,8 +30,8 @@ const Hero = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className=' h-[calc(100vh-125px)]'>
-                        <div className="md:flex items-center justify-between swiper-slide-content container mx-auto px-2 md:px-0 lg:px-20 py-16">
+                    <div className=' md:h-[calc(100vh-125px)]'>
+                        <div className="md:flex items-center justify-between  mx-auto px-2 md:px-0 lg:px-20 py-4 md:py-16">
                             <div className="slide-content px-10">
                                 <p data-aos="fade-down" data-aos-once="false" data-aos-duration="800" data-aos-easing="ease-in-out" className='tagline text-[16px] md:text-[36px] text-[#01ACFD] mb-[.5rem]'>Infrastructure</p>
                                 <h2 data-aos="fade-left" data-aos-once="false" data-aos-duration="800" data-aos-easing="ease-in-out" className='heading text-[24px] md:text-[62px] leading-[30px] md:leading-[70px] font-[600] mb-4'>Ultra Modern Academy Complex</h2>
@@ -45,8 +45,8 @@ const Hero = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className=' h-[calc(100vh-125px)]'>
-                        <div className="md:flex items-center justify-between swiper-slide-content container mx-auto px-2 md:px-0 lg:px-20 py-16">
+                    <div className=' md:h-[calc(100vh-125px)]'>
+                        <div className="md:flex items-center justify-between gap-7  mx-auto px-2 md:px-0 lg:px-20 py-4 md:py-16">
                             <div className='w-7/12 flex justify-center items-center'>
                                 <img data-aos="zoom-in" data-aos-once="false" data-aos-duration="800" data-aos-easing="ease-in-out" src="https://img.freepik.com/free-vector/flat-national-sports-day-illustration_23-2149009863.jpg?w=740&t=st=1686287539~exp=1686288139~hmac=77c67c3873689cb446a2129977295b553ebcbeb46d98634cfffc5548ec527cd9" className='w-[200px] md:w-[450px] mx-auto mb-2 md:mb-0 rounded-lg' alt="" />
                             </div>
@@ -60,8 +60,8 @@ const Hero = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className=' h-[calc(100vh-125px)]'>
-                        <div className="md:flex items-center justify-between swiper-slide-content container mx-auto px-2 md:px-0 lg:px-20 py-16">
+                    <div className=' md:h-[calc(100vh-125px)]'>
+                        <div className="md:flex items-center justify-between  mx-auto px-2 md:px-0 lg:px-20 py-4 md:py-16">
                             <div className="slide-content px-10">
                                 <p data-aos="fade-down" data-aos-once="false" data-aos-duration="800" data-aos-easing="ease-in-out" className='tagline text-[16px] md:text-[36px] text-[#01ACFD] mb-[.5rem]'>Infrastructure</p>
                                 <h2 data-aos="fade-left" data-aos-once="false" data-aos-duration="800" data-aos-easing="ease-in-out" className='heading text-[24px] md:text-[62px] leading-[30px] md:leading-[70px] font-[600] mb-4'>Ultra Modern Academy Complex</h2>
