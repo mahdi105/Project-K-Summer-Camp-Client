@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import Hero from '../../components/Utils/Hero/Hero';
 import PopularClasses from '../../components/Utils/PopularClasses/PopularClasses';
 import PopularInstruct from '../../components/Utils/PopularInstruct/PopularInstruct';
+import Testimonial from '../../components/Utils/Testimonial/Testimonial';
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
             <Hero></Hero>
             <PopularClasses></PopularClasses>
             <PopularInstruct></PopularInstruct>
+            <Testimonial></Testimonial>
         </div>
     );
 };
