@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Hero from '../../components/Utils/Hero/Hero';
 import PopularClasses from '../../components/Utils/PopularClasses/PopularClasses';
+import PopularInstruct from '../../components/Utils/PopularInstruct/PopularInstruct';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             </Helmet>
             <Hero></Hero>
             <PopularClasses></PopularClasses>
+            <PopularInstruct></PopularInstruct>
         </div>
     );
 };

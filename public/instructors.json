@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "John Smith",
+        "image": "https://img.freepik.com/free-photo/old-man-with-chess-game-medium-shot_23-2149833662.jpg?w=900&t=st=1686312409~exp=1686313009~hmac=f855743a2019ae8a8092edd2ea8da3055eecdae4f14f789c029d7ee67a91c79c",
+        "email": "john@smith.com",
+        "classes": 1,
+        "classesName": ["Chess"]
+    },
+    {
+        "id": 2,
+        "name": "Jessi Alba",
+        "image": "https://i.ibb.co/fGVKzY5/instructor-4.png",
+        "email": "jessi@alba.com",
+        "classes": 1,
+        "classesName": ["Archery"]
+    },
+    {
+        "id": 3,
+        "name": "Will Smith",
+        "image": "https://img.freepik.com/premium-photo/smiling-male-badminton-player-holding-racket-shuttlecock-while-standing_8595-27607.jpg",
+        "email": "will@smith.com",
+        "classes": 1,
+        "classesName": ["Badminton"]
+    },
+    {
+        "id": 4,
+        "name": "John Wick",
+        "image": "https://i.ibb.co/n0whxg8/instructor-3.png",
+        "email": "john@wick.com",
+        "classes": 1,
+        "classesName": ["Ping Pong"]
+    },
+    {
+        "id": 5,
+        "name": "Bill Clinton",
+        "image": "https://img.freepik.com/premium-photo/portrait-happy-gym-trainer-holding-clipboard_107420-30393.jpg?w=740",
+        "email": "bill@clinton.com",
+        "classes": 1,
+        "classesName": ["Fitness"]
+    },
+    {
+        "id": 6,
+        "name": "Ben Carter",
+        "image": "https://i.ibb.co/mJgnHQL/instructor-2.png",
+        "email": "ben@carter.com",
+        "classes": 1,
+        "classesName": ["Free Style Swimming"]
+    }
+]
