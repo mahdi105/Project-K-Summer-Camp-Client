@@ -25,6 +25,7 @@ const Header = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 {menu}
+                                <Link className="md:hidden py-1 px-3 rounded-lg mt-1 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
                             </ul>
                         </div>
                         <Link to='/' className='ml-2 md:ml-0 w-5/12 md:w-6/12'>
@@ -37,8 +38,8 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <div><img className='w-[50px] h-[50px] rounded-full border border-slate-100 mr-2' src="" alt="" /></div>
-                        <Link className="btn bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
+                        <div><img className='w-[50px] h-[50px] mr-4 rounded-full border border-slate-100' src="" alt="" /></div>
+                        <Link className="hidden md:inline-block py-2 px-4 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
                     </div>
                 </div>
             </Container>
