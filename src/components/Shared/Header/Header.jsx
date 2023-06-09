@@ -15,7 +15,7 @@ const menu = <>
 
 const Header = () => {
     return (
-        <header className='fixed top-0 bg-white shadow-md shadow-[#17197319]'>
+        <header className='fixed top-0 z-10 bg-white shadow-md shadow-[#17197319]'>
             <Container>
                 <div className="navbar py-5">
                     <div className="navbar-start">
