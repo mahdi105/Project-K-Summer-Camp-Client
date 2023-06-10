@@ -7,7 +7,7 @@ import axios from 'axios';
 export const authContext = createContext();
 
 const auth = getAuth(app)
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -24,10 +24,10 @@ const AuthProvider = ({children}) => {
     }
 
     // Logout
-    const logOut = ()=> {
+    const logOut = () => {
         setLoading(true);
         return signOut(auth);
-    } 
+    }
 
     const profileUpdate = (name, photo) => {
         return updateProfile(auth.currentUser, {
@@ -37,32 +37,32 @@ const AuthProvider = ({children}) => {
 
     // Google Sign In
     const googleProvider = new GoogleAuthProvider();
-    const googleSignIn = ()=>{
+    const googleSignIn = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
     // Get current user login status
-    useEffect(()=>{
+    useEffect(() => {
         const cleanup = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            if(currentUser && currentUser.email){
-                axios.post('http://localhost:5000/jwt', {email: currentUser.email})
-                .then(data => {
-                    localStorage.setItem('access_token', data.data);
-                    setLoading(false)
-                })
-                .catch(error => alert(`I'm not able to load JWT TOken (at onAuthStateChanged). Error: ${error.message}`))
+            if (currentUser && currentUser.email) {
+                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+                    .then(data => {
+                        localStorage.setItem('access_token', data.data);
+                        setLoading(false)
+                    })
+                    .catch(error => alert(`I'm not able to load JWT TOken (at onAuthStateChanged). Error: ${error.message}`))
             }
             else {
                 localStorage.removeItem('access_token');
                 setLoading(false);
             }
         });
-        return ()=>{
+        return () => {
             cleanup();
         }
-    },[])
+    }, [])
     const authInfo = {
         loading,
         user,

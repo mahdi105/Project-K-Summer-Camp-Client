@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import gIcon from '/g.png';
 import signup from '/singup.jpg';
 import axios from 'axios';
-import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -26,8 +25,10 @@ const Register = () => {
             return;
         };
         setIsloading(true);
+
         const formData = new FormData();
         formData.append('image', image);
+
         const URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_UPLOAD_KEY}`;
         axios.post(URL, formData)
             .then(res => {
@@ -61,9 +62,6 @@ const Register = () => {
 
     return (
         <div className='mt-[120px] py-20'>
-            <Helmet>
-                <title>Sign Up | Summer Sports</title>
-            </Helmet>
             <Container>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                     <div className='bg-slate-50 rounded-lg shadow-lg p-8'>
