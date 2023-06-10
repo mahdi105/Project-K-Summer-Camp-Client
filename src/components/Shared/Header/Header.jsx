@@ -8,8 +8,6 @@ const menu = <>
     <li className='uppercase text-[15px] font-semibold text-[#0f3054]'><NavLink className={({ isActive }) => isActive ? "active" : ""} to='/'>Home</NavLink></li>
     <li className='uppercase text-[15px] font-semibold text-[#0f3054]'><NavLink className={({ isActive }) => isActive ? "active" : ""} to='/instructors'>Instructors</NavLink></li>
     <li className='uppercase text-[15px] font-semibold text-[#0f3054]'><NavLink className={({ isActive }) => isActive ? "active" : ""} to='/classes'>Classes</NavLink></li>
-    <li className='uppercase text-[15px] font-semibold text-[#0f3054]'><NavLink className={({ isActive }) => isActive ? "active" : ""} to='/about'>About Us</NavLink></li>
-    <li className='uppercase text-[15px] font-semibold text-[#0f3054]'><NavLink className={({ isActive }) => isActive ? "active" : ""} to='/contact'>Contact Us</NavLink></li>
     <li className='uppercase text-[15px] font-semibold text-[#0f3054]'><NavLink className={({ isActive }) => isActive ? "active" : ""} to='/register'>Register</NavLink></li>
 </>
 
