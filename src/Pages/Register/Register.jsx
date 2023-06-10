@@ -5,6 +5,7 @@ import Container from '../../components/Utils/Container';
 import { Link } from 'react-router-dom';
 import gIcon from '/g.png';
 import signup from '/singup.jpg';
+import axios from 'axios';
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -12,7 +13,7 @@ const Register = () => {
     const { register, handleSubmit,formState: { errors }  } = useForm();
     const handleRegister = (data) => {
         const name = data.name;
-        const image = data.photo;;
+        const image = data.photo[0];
         const email = data.email;
         const password = data.password;
         const confirm = data.confirm;
@@ -21,6 +22,14 @@ const Register = () => {
             setError("Password is incorrect");
             return;
         };
+        const formData = new FormData();
+        formData.append('image', image);
+        const URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.IMAGE_UPLOAD_API_KEY}`;
+        axios.post(URL, formData)
+        .then(res => {
+            const imageLink = res.data.display_url;
+            
+        })
     };
 
     return (
