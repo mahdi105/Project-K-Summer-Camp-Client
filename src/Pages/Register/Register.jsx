@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import useAuth from '../../Hooks/UseAuth';
 import { useForm } from 'react-hook-form';
 import Container from '../../components/Utils/Container';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import gIcon from '/g.png';
 import signup from '/singup.jpg';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const [error, setError] = useState('')
+    const [isLoading, setIsloading] = useState(false);
     const { createUser, profileUpdate } = useAuth();
-    const { register, handleSubmit,formState: { errors }  } = useForm();
+    const navigate = useNavigate();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const handleRegister = (data) => {
         const name = data.name;
         const image = data.photo[0];
@@ -18,34 +21,49 @@ const Register = () => {
         const password = data.password;
         const confirm = data.confirm;
         setError('');
-        if(password !== confirm){
+        if (password !== confirm) {
             setError("Password is incorrect");
             return;
         };
+        setIsloading(true);
         const formData = new FormData();
         formData.append('image', image);
         const URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_UPLOAD_KEY}`;
         axios.post(URL, formData)
-        .then(res => {
-            const imageLink = res.data.data.display_url;
-            // Registration
-            createUser(email, password)
-            .then(result => {
-                profileUpdate(name, imageLink)
-                .then(res => {
-                    const newUser = {name: name, email: email}
-                    axios.post('http://localhost:5000/users', newUser)
-                    .then(res => console.log(res.data))
-                })
-                .catch(error => alert(`I'm not able to update user profile while Registration. Erro: ${error.message}`))
-               
+            .then(res => {
+                const imageLink = res.data.data.display_url;
+                // Registration
+                createUser(email, password)
+                    .then(result => {
+                        profileUpdate(name, imageLink)
+                            .then(res => {
+                                // Save the user into database
+                                const newUser = { name: name, email: email };
+                                axios.post('http://localhost:5000/users', newUser)
+                                    .then(res => {
+                                        if (res.data.acknowledged) {
+                                            setIsloading(false);
+                                            reset();
+                                            navigate('/login');
+                                        }
+                                    })
+                            })
+                            .catch(error => alert(`I'm not able to update user profile while Registration. Erro: ${error.message}`))
+
+                    })
+                    .catch(error => {
+                        alert(`I'm not able to Create User while registration, Error: ${error.message}`);
+                        setIsloading(false);
+                        reset();
+                    });
             })
-            .catch(error => alert(`I'm not able to Create User while registration, Error: ${error.message}`));
-        })
     };
 
     return (
         <div className='mt-[120px] py-20'>
+            <Helmet>
+                <title>Sign Up | Summer Sports</title>
+            </Helmet>
             <Container>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                     <div className='bg-slate-50 rounded-lg shadow-lg p-8'>
@@ -85,7 +103,11 @@ const Register = () => {
                                 </label>
                                 <input {...register("photo", { required: true })} type="file" placeholder="Enter your profile picture" className="file-input w-full" />
                             </div>
-                            <button type='submit' className='btn btn-primary text-white w-full mb-6'>Submit</button>
+                            <button disabled={isLoading} type='submit' className='btn btn-primary text-white w-full mb-6'>
+                                {
+                                    isLoading ? 'Loading...' : 'Submit'
+                                }
+                            </button>
                             <p className='text-center'>Already have an account? Please <Link className='font-bold text-orange-600' to='/login'>Login</Link></p>
                             <div className="divider mb-5">OR</div>
                             <div className='text-center pt-2'>

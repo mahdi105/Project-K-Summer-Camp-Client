@@ -49,7 +49,7 @@ const AuthProvider = ({children}) => {
             if(currentUser && currentUser.email){
                 axios.post('http://localhost:5000/jwt', {email: currentUser.email})
                 .then(data => {
-                    localStorage.setItem('access_token', data.token);
+                    localStorage.setItem('access_token', data.data);
                     setLoading(false)
                 })
                 .catch(error => alert(`I'm not able to load JWT TOken (at onAuthStateChanged). Error: ${error.message}`))
