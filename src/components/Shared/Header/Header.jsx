@@ -34,6 +34,9 @@ const Header = () => {
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 {menu}
                                 <Link className="md:hidden py-1 px-3 rounded-lg mt-1 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
+                                {
+                                    user && <button className=' md:ml-5 text-[15px] font-black rounded-full py-1 px-3 mt-1' onClick={handlelogOut}>Logout</button>
+                                }
                             </ul>
                         </div>
                         <Link to='/' className='ml-2 md:ml-0 w-5/12 md:w-6/12'>
@@ -44,7 +47,7 @@ const Header = () => {
                         <ul className="menu menu-horizontal px-1">
                             {menu}
                             {
-                                user && <button className='text-[15px] font-black rounded-full' onClick={handlelogOut}>Logout</button>
+                                user && <button className=' ml-5 text-[15px] font-black rounded-full' onClick={handlelogOut}>Logout</button>
                             }
                         </ul>
                     </div>

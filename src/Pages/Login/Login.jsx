@@ -6,11 +6,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '/signin.jpg'
 import useAuth from '../../Hooks/UseAuth';
 import { Helmet } from 'react-helmet-async';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const [error, setError] = useState('');
     const [isLoading, setIsloading] = useState(false);
-    const {logIn} = useAuth();
+    const [showPassword, setshowPassword] = useState(false);
+    const { logIn } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const destination = location.state?.from?.pathname || '/';
@@ -22,16 +24,16 @@ const Login = () => {
         setError('');
         setIsloading(true);
         logIn(email, password)
-        .then(result => {
-            alert('Login Successful')
-            reset();
-            setIsloading(false)
-            navigate(destination, {replace:true});
-        })
-        .catch(error => {
-            alert(`I'm not able to login the user. Error: ${error.message}`);
-            setIsloading(false)
-        })
+            .then(result => {
+                alert('Login Successful')
+                reset();
+                setIsloading(false)
+                navigate(destination, { replace: true });
+            })
+            .catch(error => {
+                alert(`I'm not able to login the user. Error: ${error.message}`);
+                setIsloading(false)
+            })
     }
     return (
         <div className='mt-[120px] py-20'>
@@ -49,11 +51,18 @@ const Login = () => {
                                 </label>
                                 <input {...register("email", { required: true })} type="email" placeholder="example@summersports.com" className="input input-bordered w-full" />
                             </div>
-                            <div className="form-control w-full mb-2">
+                            <div className="form-control w-full mb-5">
                                 <label className="label">
                                     <span className="text-[16px] font-semibold uppercase">Password</span>
                                 </label>
-                                <input {...register("password", { required: true })} type="password" placeholder="$#@AAaa123" className="input input-bordered w-full mb-2" />
+                                <div className='flex items-center gap-4 bg-white py-1 px-3 rounded-md'>
+                                    <input {...register("password", { required: true })} type={showPassword ? "text": "password"} placeholder="$#@AAaa123" className="input w-full" />
+                                    <div className='py-1 px-1 rounded border border-slate-200' onClick={()=> setshowPassword(!showPassword)}>
+                                        {
+                                            showPassword ? <FaEyeSlash></FaEyeSlash>: <FaEye></FaEye>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                             <button disabled={isLoading} type='submit' className='btn btn-primary text-white w-full mb-6'>
                                 {
