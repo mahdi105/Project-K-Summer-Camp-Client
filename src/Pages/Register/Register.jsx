@@ -3,9 +3,9 @@ import useAuth from '../../Hooks/UseAuth';
 import { useForm } from 'react-hook-form';
 import Container from '../../components/Utils/Container';
 import { Link, useNavigate } from 'react-router-dom';
-import gIcon from '/g.png';
 import signup from '/singup.jpg';
 import axios from 'axios';
+import SocialLogin from '../../components/Utils/SocialLogin/SocialLogin';
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -48,6 +48,7 @@ const Register = () => {
                                             navigate('/');
                                         }
                                     })
+                                    .catch(error => alert(`I'm not able to save the user to database while registration(email/password). Error: ${error.message}`))
                             })
                             .catch(error => alert(`I'm not able to update user profile while Registration. Erro: ${error.message}`))
 
@@ -107,14 +108,12 @@ const Register = () => {
                                     isLoading ? 'Loading...' : 'Submit'
                                 }
                             </button>
-                            <p className='text-center'>Already have an account? Please <Link className='font-bold text-orange-600' to='/login'>Login</Link></p>
-                            <div className="divider mb-5">OR</div>
-                            <div className='text-center pt-2'>
-                                <button >
-                                    <img className='w-[40px]' src={gIcon} alt="" />
-                                </button>
-                            </div>
                         </form>
+                        <p className='text-center'>Already have an account? Please <Link className='font-bold text-orange-600' to='/login'>Login</Link></p>
+                        <div className="divider mb-5">OR</div>
+                        <div className='text-center pt-2'>
+                            <SocialLogin></SocialLogin>
+                        </div>
                     </div>
                     <div className='flex justify-center items-center'>
                         <img src={signup} alt="" />

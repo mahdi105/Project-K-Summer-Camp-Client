@@ -7,6 +7,7 @@ import loginImg from '/signin.jpg'
 import useAuth from '../../Hooks/UseAuth';
 import { Helmet } from 'react-helmet-async';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import SocialLogin from '../../components/Utils/SocialLogin/SocialLogin';
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -56,10 +57,10 @@ const Login = () => {
                                     <span className="text-[16px] font-semibold uppercase">Password</span>
                                 </label>
                                 <div className='flex items-center gap-4 bg-white py-1 px-3 rounded-md'>
-                                    <input {...register("password", { required: true })} type={showPassword ? "text": "password"} placeholder="$#@AAaa123" className="input w-full" />
-                                    <div className='py-1 px-1 rounded border border-slate-200' onClick={()=> setshowPassword(!showPassword)}>
+                                    <input {...register("password", { required: true })} type={showPassword ? "text" : "password"} placeholder="$#@AAaa123" className="input w-full" />
+                                    <div className='py-1 px-1 rounded border border-slate-200' onClick={() => setshowPassword(!showPassword)}>
                                         {
-                                            showPassword ? <FaEyeSlash></FaEyeSlash>: <FaEye></FaEye>
+                                            showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                                         }
                                     </div>
                                 </div>
@@ -70,14 +71,12 @@ const Login = () => {
                                 }
                             </button>
                             <p className='text-red-500'>{error}</p>
-                            <p className='text-center'>Not a member yet? Please <Link className='font-bold text-orange-600' to='/register'>Register</Link></p>
-                            <div className="divider mb-5">OR</div>
-                            <div className='text-center pt-2'>
-                                <button >
-                                    <img className='w-[40px]' src={gIcon} alt="" />
-                                </button>
-                            </div>
                         </form>
+                        <p className='text-center'>Not a member yet? Please <Link className='font-bold text-orange-600' to='/register'>Register</Link></p>
+                        <div className="divider mb-5">OR</div>
+                        <div className='text-center pt-2'>
+                           <SocialLogin></SocialLogin>
+                        </div>
                     </div>
                     <div className='flex justify-center items-center'>
                         <img src={loginImg} alt="" />
