@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const Register = () => {
     const [error, setError] = useState('')
-    const { createUser } = useAuth();
+    const { createUser, profileUpdate } = useAuth();
     const { register, handleSubmit,formState: { errors }  } = useForm();
     const handleRegister = (data) => {
         const name = data.name;
@@ -24,11 +24,23 @@ const Register = () => {
         };
         const formData = new FormData();
         formData.append('image', image);
-        const URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.IMAGE_UPLOAD_API_KEY}`;
+        const URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_UPLOAD_KEY}`;
         axios.post(URL, formData)
         .then(res => {
-            const imageLink = res.data.display_url;
-            
+            const imageLink = res.data.data.display_url;
+            // Registration
+            createUser(email, password)
+            .then(result => {
+                profileUpdate(name, imageLink)
+                .then(res => {
+                    const newUser = {name: name, email: email}
+                    axios.post('http://localhost:5000/users', newUser)
+                    .then(res => console.log(res.data))
+                })
+                .catch(error => alert(`I'm not able to update user profile while Registration. Erro: ${error.message}`))
+               
+            })
+            .catch(error => alert(`I'm not able to Create User while registration, Error: ${error.message}`));
         })
     };
 
