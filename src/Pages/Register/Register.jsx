@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAuth from '../../Hooks/UseAuth';
 import { useForm } from 'react-hook-form';
 import Container from '../../components/Utils/Container';
 import { Link } from 'react-router-dom';
-import gIcon from '/g.png'
+import gIcon from '/g.png';
+import signup from '/singup.jpg';
 
 const Register = () => {
-    const { register, handleSubmit } = useForm();
+    const [error, setError] = useState('')
     const { createUser } = useAuth();
+    const { register, handleSubmit,formState: { errors }  } = useForm();
+    const handleRegister = (data) => {
+        const name = data.name;
+        const image = data.photo;;
+        const email = data.email;
+        const password = data.password;
+        const confirm = data.confirm;
+        setError('');
+        if(password !== confirm){
+            setError("Password is incorrect");
+            return;
+        };
+    };
 
     return (
         <div className='mt-[120px] py-20'>
             <Container>
-                <div>
-                    <div>
-
-                    </div>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                     <div className='bg-slate-50 rounded-lg shadow-lg p-8'>
                         <h2 style={{ fontFamily: 'Poppins' }} className='uppercase font-bold text-4xl text-center mb-8'>Sign UP</h2>
-                        <form>
+                        <form onSubmit={handleSubmit(handleRegister)}>
                             <div className="form-control w-full mb-2">
                                 <label className="label">
                                     <span className="text-[16px] font-semibold uppercase">Name</span>
@@ -35,13 +46,17 @@ const Register = () => {
                                 <label className="label">
                                     <span className="text-[16px] font-semibold uppercase">Password</span>
                                 </label>
-                                <input {...register("password", { required: true, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/ })} type="password" placeholder="$#@AAaa123" className="input input-bordered w-full" />
+                                <input {...register("password", { required: true, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/ })} type="password" placeholder="$#@AAaa123" className="input input-bordered w-full mb-2" />
+                                {errors.password && <p className='text-red-500'>Password must have at least one uppercase letter, one number, a special character and more than 5 characters</p>}
                             </div>
                             <div className="form-control w-full mb-2">
                                 <label className="label">
                                     <span className="text-[16px] font-semibold uppercase">Confirm Password</span>
                                 </label>
                                 <input {...register("confirm", { required: true })} type="password" className="input input-bordered w-full" />
+                                {
+                                    error && <p className='text-red-500 py-2'>{error}</p>
+                                }
                             </div>
                             <div className="form-control w-full mb-8">
                                 <label className="label">
@@ -58,6 +73,9 @@ const Register = () => {
                                 </button>
                             </div>
                         </form>
+                    </div>
+                    <div className='flex justify-center items-center'>
+                        <img src={signup} alt="" />
                     </div>
                 </div>
             </Container>

@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../Firebase/firebase.config';
+import axios from 'axios';
 
 // Authentication Methods distributed through authContext entire application
 export const authContext = createContext();
@@ -39,7 +40,20 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const cleanup = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            setLoading(false)
+            if(currentUser && currentUser.email){
+                axios.post('http://localhost:5000/jwt', {email: currentUser.email})
+                .then(data => {
+                    localStorage.setItem('access_token', data.token);
+                    setLoading(false)
+                })
+                .catch(error => alert(`I'm not able to load JWT TOken (at onAuthStateChanged). Error: ${error.message}`))
+            }
+            else {
+                localStorage.removeItem('access_token');
+                setLoading(false);
+            }
+
+            
         });
         return ()=>{
             cleanup();

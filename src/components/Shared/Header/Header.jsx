@@ -27,7 +27,7 @@ const Header = () => {
                             </ul>
                         </div>
                         <Link to='/' className='ml-2 md:ml-0 w-5/12 md:w-6/12'>
-                            <img className='w-full' src={logo} alt="Summer Sports logo" />
+                            <img className='w-full md:w-8/12' src={logo} alt="Summer Sports logo" />
                         </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
