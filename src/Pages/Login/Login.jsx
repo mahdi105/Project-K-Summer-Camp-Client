@@ -28,7 +28,10 @@ const Login = () => {
             setIsloading(false)
             navigate(destination, {replace:true});
         })
-        .catch(error => alert(`I'm not able to login the user. Error: ${error.message}`))
+        .catch(error => {
+            alert(`I'm not able to login the user. Error: ${error.message}`);
+            setIsloading(false)
+        })
     }
     return (
         <div className='mt-[120px] py-20'>

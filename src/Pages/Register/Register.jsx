@@ -45,7 +45,7 @@ const Register = () => {
                                         if (res.data.acknowledged) {
                                             setIsloading(false);
                                             reset();
-                                            navigate('/login');
+                                            navigate('/');
                                         }
                                     })
                             })
@@ -58,6 +58,7 @@ const Register = () => {
                         reset();
                     });
             })
+            .catch(error => console.log("ImgBb Error: ", error.message))
     };
 
     return (

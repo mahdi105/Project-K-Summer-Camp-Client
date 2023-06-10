@@ -3,6 +3,7 @@ import Container from '../../Utils/Container';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '/logo.png'
 import './Header.css'
+import useAuth from '../../../Hooks/UseAuth';
 // Main Menu
 const menu = <>
     <li className='uppercase text-[15px] font-semibold text-[#0f3054]'><NavLink className={({ isActive }) => isActive ? "active" : ""} to='/'>Home</NavLink></li>
@@ -12,6 +13,15 @@ const menu = <>
 </>
 
 const Header = () => {
+    const { user, loading, logOut } = useAuth();
+    const handlelogOut = () => {
+        const proceed = confirm('Are you sure to logout?');
+        if (proceed) {
+            logOut()
+                .then(() => alert("logout Successful"))
+                .catch(error => console.log(error.message))
+        }
+    }
     return (
         <header className='fixed top-0 z-10 bg-white shadow-md shadow-[#17197319]'>
             <Container>
@@ -33,11 +43,23 @@ const Header = () => {
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             {menu}
+                            {
+                                user && <button className='text-[15px] font-black rounded-full' onClick={handlelogOut}>Logout</button>
+                            }
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <div><img className='w-[50px] h-[50px] mr-4 rounded-full border border-slate-100' src="" alt="" /></div>
-                        <Link className="hidden md:inline-block py-2 px-4 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
+                        {
+                            !loading && user && user.email ?
+                                <>
+                                    <div>
+                                        <img className='w-[50px] h-[50px] mr-4 rounded-full border border-slate-100' src={!loading && user.photoURL} alt="" />
+                                    </div>
+                                    <Link className="hidden md:inline-block py-2 px-4 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
+                                </>
+                                :
+                                <Link to='/login' className="hidden md:inline-block py-2 px-4 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Login</Link>
+                        }
                     </div>
                 </div>
             </Container>
