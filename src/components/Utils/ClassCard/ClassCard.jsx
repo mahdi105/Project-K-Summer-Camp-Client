@@ -1,12 +1,17 @@
 import React from 'react';
+import { Zoom } from 'react-awesome-reveal';
 
-const ClassCard = ({course}) => {
-    const {id, name, image, instructorName, instructorImage, price, availableSeats,numberOfStudents} = course;
+const ClassCard = ({ course }) => {
+    const { id, name, image, instructorName, instructorImage, price, availableSeats, numberOfStudents } = course;
     return (
         <div className="card w-full bg-base-100 shadow-xl">
-            <figure><img src={image} alt="Shoes" /></figure>
+            <figure>
+                <Zoom cascade>
+                    <img src={image} alt="Shoes" />
+                </Zoom>
+            </figure>
             <div className="card-body">
-                <h2 style={{fontFamily: 'Poppins'}} className="font-bold capitalize text-xl">{name}</h2>
+                <h2 style={{ fontFamily: 'Poppins' }} className="font-bold capitalize text-xl">{name}</h2>
                 <h3 className='font-semibold text-[#ff1b65]'>Instructor:</h3>
                 <div className='flex items-center gap-2 p-2 rounded-md border border-slate-200 mb-2'>
                     <img className='w-[40px] h-[40px] rounded-full' src={instructorImage} alt="Instructor Image" />

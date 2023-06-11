@@ -28,7 +28,7 @@ const PopularInstruct = () => {
                             </thead>
                             <tbody>
                                 {
-                                    instructors.map(instr => <InstructorRaw key={instr.id} instructor={instr}></InstructorRaw>)
+                                    instructors.slice(0,6).map(instr => <InstructorRaw key={instr.id} instructor={instr}></InstructorRaw>)
                                 }
                                 
                             </tbody>

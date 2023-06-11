@@ -13,7 +13,7 @@ const SocialLogin = () => {
         googleSignIn()
             .then(res => {
                 const user = res.user;
-                const newUser = {name: user.displayName, email: user.email};
+                const newUser = { name: user.displayName, email: user.email };
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
@@ -21,11 +21,12 @@ const SocialLogin = () => {
                     },
                     body: JSON.stringify(newUser)
                 })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                })
-                .catch(error => alert('Unable to save user while google login'));
+                    .then(res => res.json())
+                    .then(data => {
+                        alert('Social Login Successful')
+                        navigate(destination, { replace: true });
+                    })
+                    .catch(error => alert('Unable to save user while google login'));
                 alert("Google Login Successful");
             })
             .catch(error => alert(`Social Login is not working. Error: ${error.message}`));
