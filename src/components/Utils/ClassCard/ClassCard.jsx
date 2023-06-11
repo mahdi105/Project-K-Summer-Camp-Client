@@ -1,14 +1,14 @@
 import React from 'react';
-import { Zoom } from 'react-awesome-reveal';
+import { Fade} from 'react-awesome-reveal';
 
 const ClassCard = ({ course }) => {
     const { id, name, image, instructorName, instructorImage, price, availableSeats, numberOfStudents } = course;
     return (
         <div className="card w-full bg-base-100 shadow-xl">
             <figure>
-                <Zoom cascade>
+                <Fade cascade>
                     <img src={image} alt="Shoes" />
-                </Zoom>
+                </Fade>
             </figure>
             <div className="card-body">
                 <h2 style={{ fontFamily: 'Poppins' }} className="font-bold capitalize text-xl">{name}</h2>
