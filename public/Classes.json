@@ -1,60 +1,66 @@
 [
     {
-        "id": 1245,
         "name": "Advance Chess",
         "image": "https://img.freepik.com/free-photo/chess-board-game-concept-business-ideas-competition_155003-5361.jpg?t=st=1686311186~exp=1686311786~hmac=d894de4aeed39b8fd32d671ecb412e0bcae6536ff1a3359eff27822a8156ca56",
         "instructorName": "John Smith",
+        "email": "john@smith.com",
         "instructorImage": "https://img.freepik.com/free-photo/old-man-with-chess-game-medium-shot_23-2149833662.jpg?w=900&t=st=1686312409~exp=1686313009~hmac=f855743a2019ae8a8092edd2ea8da3055eecdae4f14f789c029d7ee67a91c79c",
         "availableSeats": 200,
         "price": 49.99,
+        "status": "approved",
         "numberOfStudents": 0
     },
     {
-        "id": 1235,
         "name": "Archery Short Course",
         "image": "https://img.freepik.com/premium-photo/portrait-female-athlete-practicing-archery-stadium_519356-2618.jpg?w=900",
         "instructorName": "Jessi Alba",
         "instructorImage": "https://i.ibb.co/fGVKzY5/instructor-4.png",
+        "email": "jessi@alba.com",
+        "status": "approved",
         "availableSeats": 200,
         "price": 49.99,
         "numberOfStudents": 0
     },
     {
-        "id": 2345,
         "name": "Badminton Pro",
         "image": "https://img.freepik.com/premium-photo/professional-badminton-player-use-racquet-hit-shuttle-cock-shuttlecock-badminton-court_74324-402.jpg?w=900",
         "instructorName": "Will Smith",
         "instructorImage": "https://img.freepik.com/premium-photo/smiling-male-badminton-player-holding-racket-shuttlecock-while-standing_8595-27607.jpg",
+        "email": "will@smith.com",
+        "status":"approved",
         "availableSeats": 200,
         "price": 49.99,
         "numberOfStudents": 0
     },
     {
-        "id": 1234,
         "name": "Pin Pong Tennis",
         "image": "https://img.freepik.com/free-photo/young-man-playing-table-tennis_155003-32601.jpg?w=900&t=st=1686311544~exp=1686312144~hmac=5540340b8d7c214b6d894575d2d80d07960cb3a7d5dab6a3eda35e31a1c63e39",
         "instructorName": "John Wick",
         "instructorImage": "https://i.ibb.co/n0whxg8/instructor-3.png",
+        "email": "john@wick.com",
+        "status":"approved",
         "availableSeats": 200,
         "price": 49.99,
         "numberOfStudents": 0
     },
     {
-        "id": 1345,
         "name": "Fitness Training",
         "image": "https://img.freepik.com/premium-photo/young-handsome-sportsman-bodybuilder-weightlifter-with-ideal-body-after-coaching-poses-front-camera-abdominal-muscles-biceps-triceps-sportswear_229149-180.jpg",
         "instructorName": "Bill Clinton",
         "instructorImage": "https://img.freepik.com/premium-photo/portrait-happy-gym-trainer-holding-clipboard_107420-30393.jpg?w=740",
+        "email": "bill@clinton.com",
+        "status":"approved",
         "availableSeats": 200,
         "price": 49.99,
         "numberOfStudents": 0
     },
     {
-        "id": 123045,
         "name": "Free Style Swimming",
         "image": "https://img.freepik.com/free-photo/five-swimmers-racing-against-each-other-swiming-pool_171337-7818.jpg?w=900&t=st=1686311590~exp=1686312190~hmac=763afcef07a6646bb16ff3e0c9f85ca6a7a5eb60faefdbf30a019f6cea5f3ba0",
         "instructorName": "Ben Carter",
         "instructorImage": "https://i.ibb.co/mJgnHQL/instructor-2.png",
+        "email": "ben@carter.com",
+        "status":"approved",
         "availableSeats": 200,
         "price": 49.99,
         "numberOfStudents": 0

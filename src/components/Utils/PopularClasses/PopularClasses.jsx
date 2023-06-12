@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Container from '../Container';
 import SectionHeading from '../SectionHeading/SectionHeading';
 import ClassCard from '../ClassCard/ClassCard';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 const PopularClasses = () => {
-    const [classes, setClasses] = useState([]);
     const storedTheme = localStorage.getItem('theme');
-    useEffect(()=>{
-        fetch('/Classes.json')
-        .then(res => res.json())
-        .then(data => setClasses(data))
-    },[])
+    const {data, isLoading} = useQuery({
+        queryKey: ['classes'],
+        queryFn: async ()=> {
+            const data = await axios.get('http://localhost:5000/classes');
+            return data;
+        },
+    })
+    const classes = !isLoading && data.data ? data.data : [];
     return (
-        <section className={`py-16 ${storedTheme == 'dark'? 'bg-gray-500': 'bg-slate-50'}`}>
+        <section className={`py-16 bg-slate-50`}>
             <Container>
                 <SectionHeading heading='Popular Classes'></SectionHeading>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>

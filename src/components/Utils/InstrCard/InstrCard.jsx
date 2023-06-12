@@ -10,9 +10,10 @@ const InstrCard = ({instructor}) => {
                 <p>Email: {email}</p>
                 <div className="card-actions">
                    <p>Classes: {classes}</p>
-                   <p>ClassesName: {
+                   <p className='mb-2'>ClassesName: {
                     classesName.map((Name, i) =><span key={i}>{Name}</span> )
                     }</p>
+                    <button className='btn btn-primary btn-sm'>See Classes</button>
                 </div>
             </div>
         </div>
