@@ -15,7 +15,7 @@ const Instructors = () => {
     })
     const instructors = !isLoading && data.data;
     return (
-        <section className='mt-[110px]'>
+        <section className='mt-[75px]'>
             <Container>
                 <div className='pt-8'>
                     <SectionHeading heading='All Instructors At Summer Sports'></SectionHeading>

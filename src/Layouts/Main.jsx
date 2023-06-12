@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../components/Shared/Footer/Footer';
 import '@smastrom/react-rating/style.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'react-hot-toast';
 
 const queryClient = new QueryClient()
 const Main = () => {
@@ -13,6 +14,7 @@ const Main = () => {
                 <Header></Header>
                 <Outlet></Outlet>
                 <Footer></Footer>
+                <Toaster></Toaster>
             </QueryClientProvider>
         </>
     );

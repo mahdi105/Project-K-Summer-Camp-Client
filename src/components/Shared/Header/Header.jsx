@@ -15,7 +15,7 @@ const menu = <>
 
 const Header = () => {
     const storedTheme = localStorage.getItem('theme');
-    const [theme, setTheme] = useState(storedTheme ? localStorage.getItem('theme') : 'light');
+    const [theme, setTheme] = useState(storedTheme ? storedTheme : 'light');
     const { user, loading, logOut } = useAuth();
     const handlelogOut = () => {
         const proceed = confirm('Are you sure to logout?');
@@ -28,8 +28,7 @@ const Header = () => {
     //Light/Dark Theme effect 
     useEffect(() => {
         localStorage.setItem('theme', theme);
-        const localTheme = localStorage.getItem('theme');
-        document.querySelector('html').setAttribute('data-theme', localTheme);
+        document.querySelector('html').setAttribute('data-theme', theme);
     }, [theme])
     return (
         <header className='fixed top-0 z-10 bg-white shadow-md shadow-[#17197319]'>

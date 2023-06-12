@@ -4,9 +4,11 @@ import SectionHeading from '../SectionHeading/SectionHeading';
 import ClassCard from '../ClassCard/ClassCard';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import useRoleCheck from '../../../Hooks/useRoleCheck';
 
 const PopularClasses = () => {
-    const storedTheme = localStorage.getItem('theme');
+    const roleCheckData = useRoleCheck();
+    const roleCheck = roleCheckData && roleCheckData.data;
     const {data, isLoading} = useQuery({
         queryKey: ['classes'],
         queryFn: async ()=> {
@@ -21,7 +23,7 @@ const PopularClasses = () => {
                 <SectionHeading heading='Popular Classes'></SectionHeading>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
                     {
-                        classes.map(course => <ClassCard key={course.id} course={course}></ClassCard> )
+                        classes.map(course => <ClassCard roleCheck={roleCheck && roleCheck} key={course._id} course={course}></ClassCard> )
                     }
                 </div>
             </Container>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from './UseAuth';
 import axios from 'axios';
@@ -11,25 +11,25 @@ const useAxiosSecure = () => {
         baseURL: 'http://localhost:5000',
     });
     useEffect(() => {
-        // Intercept Request and Add Authorization Header
         axiosSecure.interceptors.request.use((config) => {
             const token = localStorage.getItem('access_token');
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`;
             }
-            return config
+            return config;
         });
-        // Intercept Response
+
         axiosSecure.interceptors.response.use(
             (response) => response,
             async (error) => {
                 if (error.response && (error.response.status === 401 || error.response.status === 403)) {
                     await logOut();
-                    navigate('/login')
+                    navigate('/login');
                 }
                 return Promise.reject(error);
             }
-        )
+        );
+        // return axiosSecure;
     }, [logOut, navigate, axiosSecure])
     return axiosSecure
 };

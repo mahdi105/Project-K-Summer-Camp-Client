@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
-        <div className='mt-[110px]'>
+        <div className='mt-[75px]'>
             <Helmet>
                 <title>Home | Summer Sports Academy</title>
             </Helmet>
