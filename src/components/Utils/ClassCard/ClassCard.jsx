@@ -24,7 +24,7 @@ const ClassCard = ({ course }) => {
                     <p className='font-semibold text-[14px]'>Price: <span className='text-red-500'>${price}</span></p>
                 </div>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">Enrole Now</button>
                 </div>
             </div>
         </div>
