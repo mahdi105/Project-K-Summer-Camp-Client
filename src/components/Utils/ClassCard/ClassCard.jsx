@@ -17,14 +17,14 @@ const ClassCard = ({ course }) => {
                     <img className='w-[40px] h-[40px] rounded-full' src={instructorImage} alt="Instructor Image" />
                     <h2 className='font-semibold text-[17px]'>{instructorName}</h2>
                 </div>
-                <div>
+                <div className='mb-3'>
                     <h3 className='font-semibold text-[#ff1b65] border-b pb-2 mb-2'>More Info:</h3>
                     <p className='font-semibold text-[14px]'>Available Seats: <span>{availableSeats}</span></p>
                     <p className='font-semibold text-[14px]'>Number of Students: <span>{numberOfStudents}</span></p>
                     <p className='font-semibold text-[14px]'>Price: <span className='text-red-500'>${price}</span></p>
                 </div>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Enrole Now</button>
+                    <button className="btn btn-primary">Select Now</button>
                 </div>
             </div>
         </div>
