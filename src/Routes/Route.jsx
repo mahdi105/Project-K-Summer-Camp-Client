@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
+import Dashboard from "../Layouts/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,16 @@ const router = createBrowserRouter([
             {
                 path: '/classes',
                 element: <Classes></Classes>
+            }
+        ])
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: ([
+            {
+                path: '/dashboard/hello',
+                element: <h1 className="font-bold text-3xl text-red-500">Hello Javascript Dashboard</h1>
             }
         ])
     }

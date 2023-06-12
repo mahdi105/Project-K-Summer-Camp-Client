@@ -30,7 +30,7 @@ const Classes = () => {
     const classes = !isLoading && data.data ? data.data : [];
     // const roleCheck = !userLoading && savedUserData.data;
     return (
-        <section className='mt-[75px]'>
+        <section className='mt-[110px]'>
             <Container>
                 <div className='pb-4'>
                     <SectionHeading heading='All Classes'></SectionHeading>

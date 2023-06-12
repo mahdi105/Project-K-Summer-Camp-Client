@@ -49,7 +49,7 @@ const ClassCard = ({ course, roleCheck }) => {
                     <p className='font-semibold text-[14px]'>Price: <span className='text-red-500'>${price}</span></p>
                 </div>
                 <div className="card-actions justify-end">
-                    <button disabled={parseInt(availableSeats) === 0 || roleCheck} onClick={handleSelect} className="btn btn-primary">Select Now</button>
+                    <button disabled={parseInt(availableSeats) === 0 || roleCheck} onClick={handleSelect} className="btn btn-primary">Select</button>
                 </div>
             </div>
         </div>
