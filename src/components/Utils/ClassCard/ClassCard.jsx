@@ -1,35 +1,37 @@
 import React from 'react';
-import { Fade} from 'react-awesome-reveal';
+import { Fade } from 'react-awesome-reveal';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../Hooks/UseAuth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query';
 
 const notify = (str) => toast.success(str);
 const ClassCard = ({ course, roleCheck }) => {
     const { _id, name, image, instructorName, instructorImage, price, availableSeats, numberOfStudents } = course;
     const navigate = useNavigate();
     const axios = useAxiosSecure();
-    const {user, loading} = useAuth(); 
+    const { user, loading } = useAuth();
     const email = !loading && user !== null && user?.email;
     const handleSelect = () => {
-        if(loading && user === null){
+        if (loading && user === null) {
             alert("Please login before select any class.");
             navigate('/login');
             return;
         }
-        axios.post('/selectClass', {course, courseId:_id, email: email})
-        .then(res => {
-            const data = res.data;
-            if(data.exist){
-                alert(data.message);
-            }else{
-                notify("This class is selected successfully");
-            }
-        })
+        axios.post(`/selectClass?email=${email}`, { course, courseId: _id, email: email })
+            .then(res => {
+                const data = res.data;
+                if (data.exist) {
+                    alert(data.message);
+                } else {
+                    notify("This class is selected successfully");
+                }
+            })
+
     }
     return (
-        <div className={`card w-full ${parseInt(availableSeats) === 0 ? 'bg-red-400' :'bg-base-100'} shadow-xl`}>
+        <div className={`card w-full ${parseInt(availableSeats) === 0 ? 'bg-red-400' : 'bg-base-100'} shadow-xl`}>
             <figure>
                 <Fade cascade>
                     <img src={image} alt="Shoes" />

@@ -41,7 +41,7 @@ const Header = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 {menu}
-                                <Link className="md:hidden py-1 px-3 rounded-lg mt-1 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
+                                <Link to='/dashboard' className="md:hidden py-1 px-3 rounded-lg mt-1 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
                                 {
                                     user && <button className='md:ml-5 text-[15px] font-black rounded-full py-1 px-3 mt-1' onClick={handlelogOut}>Logout</button>
                                 }
@@ -62,12 +62,12 @@ const Header = () => {
                     </div>
                     <div className="navbar-end">
                         {
-                            !loading && user && user.email ?
+                            !loading && user !== null && user.email ?
                                 <>
                                     <div>
-                                        <img className='w-[50px] h-[50px] mr-4 rounded-full border border-slate-100' src={!loading && user.photoURL} alt="" />
+                                        <img className='w-[50px] h-[50px] mr-4 rounded-full border border-slate-100' src={!loading && user !== null && user?.photoURL} alt="" />
                                     </div>
-                                    <Link className="hidden md:inline-block py-2 px-4 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
+                                    <Link to='dashboard' className="hidden md:inline-block py-2 px-4 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Dashboard</Link>
                                 </>
                                 :
                                 <Link to='/login' className="hidden md:inline-block py-2 px-4 bg-[#FF1B62] text-white hover:text-black transition-all duration-300">Login</Link>

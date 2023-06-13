@@ -8,6 +8,8 @@ import Login from "../Pages/Login/Login";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Layouts/Dashboard";
+import SelectedClasses from "../Pages/SelectedClasses/SelectedClasses";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -39,11 +41,11 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: ([
             {
-                path: '/dashboard/hello',
-                element: <h1 className="font-bold text-3xl text-red-500">Hello Javascript Dashboard</h1>
+                path: '/dashboard/selectedClasses',
+                element: <SelectedClasses></SelectedClasses>
             }
         ])
     }
