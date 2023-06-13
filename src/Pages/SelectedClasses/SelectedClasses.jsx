@@ -5,8 +5,10 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { FaCreditCard } from 'react-icons/fa';
 import ClassRaw from '../../components/Utils/ClassRaw/ClassRaw';
+import { toast } from 'react-hot-toast';
 
 
+const notify = (str) => toast.success(str);
 const tableHeaderFooter = <>
     <tr className='bg-blue-50'>
         <th className='text-black'>
@@ -35,7 +37,12 @@ const SelectedClasses = () => {
         const proceed = confirm ('Are your sure?');
         if(proceed){
             axios.delete(`/selectedClass/${id}`)
-            .then(res => console.log(res.data))
+            .then(res =>{
+                if(res.data.deletedCount > 0){
+                    notify('Deleted The Selected Class');
+                    refetch();
+                }
+            })
         }
     }
     return (
