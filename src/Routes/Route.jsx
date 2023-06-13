@@ -10,6 +10,7 @@ import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Layouts/Dashboard";
 import SelectedClasses from "../Pages/SelectedClasses/SelectedClasses";
 import PrivateRoute from "./PrivateRoute";
+import Checkout from "../Pages/Checkout/Checkout";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/selectedClasses',
                 element: <SelectedClasses></SelectedClasses>
+            },
+            {
+                path: '/dashboard/checkout',
+                element: <Checkout></Checkout>
             }
         ])
     }

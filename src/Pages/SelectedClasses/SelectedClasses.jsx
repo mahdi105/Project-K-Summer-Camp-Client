@@ -39,8 +39,8 @@ const SelectedClasses = () => {
             axios.delete(`/selectedClass/${id}`)
             .then(res =>{
                 if(res.data.deletedCount > 0){
-                    notify('Deleted The Selected Class');
                     refetch();
+                    notify('Deleted The Selected Class');
                 }
             })
         }
