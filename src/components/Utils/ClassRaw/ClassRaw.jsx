@@ -1,13 +1,13 @@
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
-const ClassRaw = ({course}) => {
+const ClassRaw = ({course,itemId, handleDelete}) => {
     const {name, image, numberOfStudents, availableSeats, price, status, instructorImage, instructorName,email } = course;
     return (
         <tr>
             {/* Delete Action */}
             <td>
-                <button className="btn btn-square btn-xs text-[#FF1E65]">
+                <button onClick={()=> handleDelete(itemId)} className="btn btn-square btn-xs text-[#FF1E65]">
                     <FaTrashAlt></FaTrashAlt>
                 </button>
             </td>

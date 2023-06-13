@@ -30,6 +30,14 @@ const SelectedClasses = () => {
         }
     })
     const classes = !isLoading && data.data;
+    // Handle Delete 
+    const handleDelete = (id) => {
+        const proceed = confirm ('Are your sure?');
+        if(proceed){
+            axios.delete(`/selectedClass/${id}`)
+            .then(res => console.log(res.data))
+        }
+    }
     return (
         <div>
             <SectionHeading heading='All Selected Classes'></SectionHeading>
@@ -43,7 +51,7 @@ const SelectedClasses = () => {
                         <tbody>
                             {/* row 1 */}
                            {
-                            classes && classes.map(item => <ClassRaw key={item._id} course={item.course} itemId={item._id}></ClassRaw>)
+                            classes && classes.map(item => <ClassRaw key={item._id} course={item.course} itemId={item._id} handleDelete={handleDelete}></ClassRaw>)
                            }
                         </tbody>
                         {/* foot */}
