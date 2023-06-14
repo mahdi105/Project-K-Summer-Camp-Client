@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
     const { logOut } = useAuth();
     // Axios Instance
     const axiosSecure = axios.create({
-        baseURL: 'http://localhost:5000',
+        baseURL: 'https://summer-camp-server-mahdi105.vercel.app',
     });
     useEffect(() => {
         axiosSecure.interceptors.request.use((config) => {

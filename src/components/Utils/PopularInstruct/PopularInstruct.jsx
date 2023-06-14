@@ -6,7 +6,7 @@ import InstructorRaw from '../InstructorRaw';
 const PopularInstruct = () => {
     const [instructors, setInstructors] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/instructors')
+        fetch('https://summer-camp-server-mahdi105.vercel.app/instructors')
             .then(res => res.json())
             .then(data => setInstructors(data))
     }, [])

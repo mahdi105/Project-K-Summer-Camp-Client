@@ -9,7 +9,7 @@ const Instructors = () => {
     const {data,isLoading} = useQuery({
         queryKey: ['instructor'],
         queryFn: async () => {
-            const data = await axios.get('http://localhost:5000/instructors');
+            const data = await axios.get('https://summer-camp-server-mahdi105.vercel.app/instructors');
             return data;
         },
     })

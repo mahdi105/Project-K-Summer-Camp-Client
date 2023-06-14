@@ -25,7 +25,7 @@ const ManageClasses = () => {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/allClasses');
+            const res = await axios.get('https://summer-camp-server-mahdi105.vercel.app/allClasses');
             return res.data;
         }
     });

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import useAuth from '../../Hooks/UseAuth';
 import { useForm } from 'react-hook-form';
 import Container from '../../components/Utils/Container';
 import { Link, useNavigate } from 'react-router-dom';
 import signup from '/singup.jpg';
 import axios from 'axios';
 import SocialLogin from '../../components/Utils/SocialLogin/SocialLogin';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -40,7 +40,7 @@ const Register = () => {
                             .then(res => {
                                 // Save the user into database
                                 const newUser = { name: name, email: email, image: imageLink};
-                                axios.post('http://localhost:5000/users', newUser)
+                                axios.post('https://summer-camp-server-mahdi105.vercel.app/users', newUser)
                                     .then(res => {
                                         if (res.data.acknowledged) {
                                             setIsloading(false);

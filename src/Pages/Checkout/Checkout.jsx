@@ -15,7 +15,7 @@ const Checkout = () => {
 
     // Get the selected price
     useEffect(() => {
-        axios.get(`http://localhost:5000/selectedClass/${id}`)
+        axios.get(`https://summer-camp-server-mahdi105.vercel.app/selectedClass/${id}`)
             .then(res => setCourse(res.data))
     }, [id])
 
