@@ -11,6 +11,8 @@ import Dashboard from "../Layouts/Dashboard";
 import SelectedClasses from "../Pages/SelectedClasses/SelectedClasses";
 import PrivateRoute from "./PrivateRoute";
 import Checkout from "../Pages/Checkout/Checkout";
+import EnrolledClass from "../Pages/EnrolledClass/EnrolledClass";
+import PaymentHistory from "../Pages/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/checkout/:id',
                 element: <Checkout></Checkout>
+            },
+            {
+                path: '/dashboard/enrolledClasses',
+                element: <EnrolledClass></EnrolledClass>
+            },
+            {
+                path:'/dashboard/paymentHistory',
+                element: <PaymentHistory></PaymentHistory>
             }
         ])
     }
