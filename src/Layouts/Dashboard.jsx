@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import logo from '/logo.png';
-import { FaClipboardCheck, FaHistory, FaHome, FaListAlt, FaRegListAlt, FaUsers } from 'react-icons/fa';
+import { FaClipboardCheck, FaHistory, FaHome, FaListAlt, FaPlus, FaRegListAlt, FaUsers } from 'react-icons/fa';
 import { Toaster } from 'react-hot-toast';
 import useAdmin from '../Hooks/useAdmin';
 import useInstructor from '../Hooks/useInstructor';
@@ -21,8 +21,8 @@ const adminLinks = <>
 </>;
 // Instructor Dashboard Pages Links
 const instructorsLink = <>
-    <li ><Link to='/dashboard/addClass' className='border mb-1 text-sm uppercase font-semibold shadow-md shadow-blue-100'> <FaListAlt></FaListAlt> Add a Class</Link></li>
-    <li ><Link to='/dashboard/myClasses' className='border mb-1 text-sm uppercase font-semibold shadow-md shadow-blue-100'><FaClipboardCheck></FaClipboardCheck> My Classes</Link></li>
+    <li ><Link to='/dashboard/addAClass' className='border mb-1 text-sm uppercase font-semibold shadow-md shadow-blue-100'> <FaPlus></FaPlus> Add a Class</Link></li>
+    <li ><Link to='/dashboard/myClasses' className='border mb-1 text-sm uppercase font-semibold shadow-md shadow-blue-100'><FaListAlt></FaListAlt> My Classes</Link></li>
 </>
 const Dashboard = () => {
     const { isAdmin, isLoading } = useAdmin();
