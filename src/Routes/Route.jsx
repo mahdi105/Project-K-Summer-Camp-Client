@@ -13,6 +13,10 @@ import PrivateRoute from "./PrivateRoute";
 import Checkout from "../Pages/Checkout/Checkout";
 import EnrolledClass from "../Pages/EnrolledClass/EnrolledClass";
 import PaymentHistory from "../Pages/PaymentHistory/PaymentHistory";
+import ManageClasses from "../Pages/ManageClasses/ManageClasses";
+import AdminRoute from "./AdminRoute";
+import ManageUsers from "../Pages/ManageUsers/ManageUsers";
+import FeedbackPage from "../Pages/FeedbackPage/FeedbackPage";
 
 const router = createBrowserRouter([
     {
@@ -61,6 +65,18 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/paymentHistory',
                 element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: '/dashboard/manageClasses',
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
+            },
+            {
+                path: '/dashboard/manageUsers',
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+            },
+            {
+                path: '/dashboard/feedback/:id',
+                element: <AdminRoute><FeedbackPage></FeedbackPage></AdminRoute>
             }
         ])
     }

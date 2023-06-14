@@ -39,7 +39,7 @@ const Register = () => {
                         profileUpdate(name, imageLink)
                             .then(res => {
                                 // Save the user into database
-                                const newUser = { name: name, email: email };
+                                const newUser = { name: name, email: email, image: imageLink};
                                 axios.post('http://localhost:5000/users', newUser)
                                     .then(res => {
                                         if (res.data.acknowledged) {
