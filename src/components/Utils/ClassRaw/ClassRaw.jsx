@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const ClassRaw = ({course,itemId, handleDelete}) => {
-    const {name, image, numberOfStudents, availableSeats, price, status, instructorImage, instructorName,email } = course;
+    const {_id, name, image, numberOfStudents, availableSeats, price, status, instructorImage, instructorName,email } = course;
     return (
         <tr>
             {/* Delete Action */}
@@ -47,9 +48,9 @@ const ClassRaw = ({course,itemId, handleDelete}) => {
             </td>
             {/* Pay button */}
             <th>
-                <button className="btn btn-primary btn-xs text-white font-bold uppercase">
+                <Link to={`/dashboard/checkout/${_id}`} className="btn btn-primary btn-xs text-white font-bold uppercase">
                     <span>Pay</span>
-                </button>
+                </Link>
             </th>
         </tr>
     );

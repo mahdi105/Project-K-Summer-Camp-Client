@@ -49,7 +49,7 @@ const router = createBrowserRouter([
                 element: <SelectedClasses></SelectedClasses>
             },
             {
-                path: '/dashboard/checkout',
+                path: '/dashboard/checkout/:id',
                 element: <Checkout></Checkout>
             }
         ])
