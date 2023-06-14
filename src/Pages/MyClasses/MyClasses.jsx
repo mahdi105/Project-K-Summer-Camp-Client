@@ -2,7 +2,8 @@ import React from 'react';
 import SectionHeading from '../../components/Utils/SectionHeading/SectionHeading';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import useAuth from '../../Hooks/UseAuth';
+import useAuth from '../../Hooks/useAuth';
+import ClassInstructorRaw from '../../components/Utils/ClassInstructorRaw/ClassInstructorRaw';
 
 const tableHeaderFooter = <>
     <tr className='bg-blue-50'>
@@ -31,7 +32,6 @@ const MyClasses = () => {
             return res.data;
         }
     })
-    console.log(!isLoading && data);
     return (
         <section>
             <SectionHeading heading='My Classes'></SectionHeading>
@@ -43,9 +43,9 @@ const MyClasses = () => {
                             {tableHeaderFooter}
                         </thead>
                         <tbody>
-                            {/* {
-                                !isLoading && data.map(item => <ClassAdminRaw key={item._id} item={item} handleApproval={handleApproval} handleDeny={handleDeny} refetch={refetch}></ClassAdminRaw>)
-                            } */}
+                            {
+                                !isLoading && data.map(item => <ClassInstructorRaw key={item._id} item={item}></ClassInstructorRaw>)
+                            }
                         </tbody>
                         {/* foot */}
                         <tfoot>
