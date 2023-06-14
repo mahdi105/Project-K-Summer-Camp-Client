@@ -21,7 +21,7 @@ const PopularClasses = () => {
         <section className={`py-16 bg-slate-50`}>
             <Container>
                 <SectionHeading heading='Popular Classes'></SectionHeading>
-                <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                     {
                         classes.map(course => <ClassCard roleCheck={roleCheck && roleCheck} key={course._id} course={course}></ClassCard> )
                     }

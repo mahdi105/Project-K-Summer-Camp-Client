@@ -17,7 +17,7 @@ const Hero = () => {
     }
     effect();
     return (
-        <div className='pt-2 pb-10'>
+        <div className='pt-12 md:pt-2 pb-10'>
             <Swiper
                 pagination={{
                     dynamicBullets: true,

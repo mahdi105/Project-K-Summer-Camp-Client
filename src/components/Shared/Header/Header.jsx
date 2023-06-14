@@ -31,7 +31,7 @@ const Header = () => {
         document.querySelector('html').setAttribute('data-theme', theme);
     }, [theme])
     return (
-        <header className='fixed top-0 z-10 bg-white shadow-md shadow-[#17197319]'>
+        <header className='fixed top-0 left-0 right-0 z-10 bg-white shadow-md shadow-[#17197319]'>
             <Container>
                 <div className="navbar py-2">
                     <div className="navbar-start">

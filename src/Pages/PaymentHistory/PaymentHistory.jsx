@@ -3,6 +3,7 @@ import SectionHeading from '../../components/Utils/SectionHeading/SectionHeading
 import useAuth from '../../Hooks/UseAuth';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import PaymentInfoRaw from '../../components/Utils/PaymentInfoRaw/PaymentInfoRaw';
 
 const tableHeaderFooter = <>
     <tr className='bg-blue-100'>
@@ -21,9 +22,9 @@ const PaymentHistory = () => {
             const res = await axiosSecure.get(`/paymentsHistory?email=${user?.email}`);
             return res.data;
         }
-    })
+    });
     return (
-        <section className='py-10'>
+        <section >
             <SectionHeading heading='Payment History'></SectionHeading>
             <div>
                 <div className="overflow-x-auto">
@@ -34,7 +35,7 @@ const PaymentHistory = () => {
                         </thead>
                         <tbody>
                             {
-                                !isLoading && data.map(myClass => <EnrolledClassRaw key={myClass._id} myClass={myClass}></EnrolledClassRaw>)
+                                !isLoading && data.map(payment =><PaymentInfoRaw key={payment._id} payment={payment}></PaymentInfoRaw> )
                             }
                         </tbody>
                         {/* foot */}

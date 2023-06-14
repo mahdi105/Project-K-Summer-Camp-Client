@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <footer className='bg-[#17122d]'>
             <Container>
-                <div className='py-8 md:py-16 grid grid-cols-1 md:grid-cols-4 gap-10'>
+                <div className='py-8 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
                     <div>
                         <img className='w-4/12 mb-5 mx-auto' src={logo} alt="" />
                         <p className='text-[#e3e3e3] text-[14px] mb-4 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quam ipsam eligendi architecto sed quae fugit eius, animised quae fugit eius, animi</p>

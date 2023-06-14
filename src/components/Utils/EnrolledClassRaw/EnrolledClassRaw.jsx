@@ -21,7 +21,7 @@ const EnrolledClassRaw = ({myClass}) => {
             <td>
                 <p>No. Students: {numberOfStudents}</p>
                 <p>Available Seats: {availableSeats}</p>
-                <p>Price: {price}</p>
+                <p>Price: ${price}</p>
                 <p>Status: <span className='badge badge-ghost badge-sm'>{status}</span></p>
             </td>
             {/* Instructor Information */}
